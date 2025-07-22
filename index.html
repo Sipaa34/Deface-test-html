@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hacked by ReyyyXvxS</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: 'Courier New', monospace;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+        
+        .container {
+            max-width: 800px;
+            padding: 20px;
+            display: none; /* Hidden until cmatrix finishes */
+        }
+        
+        h1 {
+            color: #ccc;
+            font-size: 3em;
+            text-shadow: 0 0 5px #fff;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+        
+        .message {
+            background-color: #222;
+            border: 1px solid #555;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            line-height: 1.6;
+        }
+        
+        .hacker-img {
+            max-width: 350px;
+            border: 3px solid #444;
+            margin: 25px auto;
+            display: block;
+            filter: grayscale(80%) contrast(120%);
+            border-radius: 3px;
+            box-shadow: 0 0 15px rgba(255,255,255,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .hacker-img:hover {
+            filter: grayscale(30%) contrast(130%);
+            transform: scale(1.03);
+            box-shadow: 0 0 25px rgba(255,255,255,0.3);
+            border-color: #666;
+        }
+        
+        .footer {
+            margin-top: 30px;
+            color: #777;
+            font-size: 0.9em;
+            border-top: 1px solid #333;
+            padding-top: 15px;
+        }
+        
+        /* Cmatrix Effect */
+        #cmatrix {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: black;
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+        
+        #matrix {
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0.7;
+        }
+        
+        #cmatrix-text {
+            position: relative;
+            z-index: 1001;
+            color: lime;
+            font-family: 'Courier New', monospace;
+            text-align: center;
+            padding: 20px;
+            text-shadow: 0 0 5px lime;
+        }
+        
+        #cmatrix-text h2 {
+            margin-bottom: 10px;
+            font-size: 1.5em;
+        }
+        
+        #progress-bar {
+            width: 300px;
+            height: 4px;
+            background: #333;
+            margin: 20px auto;
+            overflow: hidden;
+        }
+        
+        #progress {
+            height: 100%;
+            width: 0%;
+            background: lime;
+            transition: width 0.3s;
+        }
+    </style>
+</head>
+<body>
+    <!-- Cmatrix Intro Screen -->
+    <div id="cmatrix">
+        <canvas id="matrix"></canvas>
+        <div id="cmatrix-text">
+            <h2>SYSTEM BREACH DETECTED</h2>
+            <p>Establishing connection...</p>
+            <p>ReyyyXvxS Backdoor Activated</p>
+            <div id="progress-bar">
+                <div id="progress"></div>
+            </div>
+            <p id="status-text">Initializing payload...</p>
+        </div>
+    </div>
+    
+    <!-- Main Content -->
+    <div class="container" id="mainContent">
+        <h1>HACKED BY REYYYXVXS</h1>
+        
+        <!-- Your Image -->
+        <img src="6062a91a83650c1c4ac80f7ed88eb224.jpg" alt="Hacker Proof" class="hacker-img" id="hackerImage">
+        
+        <div class="message">
+            <p>Website Telah DiEntot ReyyyXvxS</p>
+            <p>Note: Bagi tiket hindia.</p>
+        </div>
+        
+        <div class="footer">
+            <p>© 2023 - ReyyyXvxS Was Here | All Systems Compromised</p>
+        </div>
+    </div>
+
+    <script>
+        // Cmatrix Effect
+        const canvas = document.getElementById('matrix');
+        const ctx = canvas.getContext('2d');
+        
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        
+        const chars = "01アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン";
+        const fontSize = 18;
+        const columns = canvas.width / fontSize;
+        
+        const drops = [];
+        for (let i = 0; i < columns; i++) {
+            drops[i] = Math.random() * -100;
+        }
+        
+        function drawMatrix() {
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            
+            ctx.fillStyle = '#0F0';
+            ctx.font = fontSize + 'px monospace';
+            
+            for (let i = 0; i < drops.length; i++) {
+                const text = chars.charAt(Math.floor(Math.random() * chars.length));
+                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+                
+                if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                    drops[i] = 0;
+                }
+                drops[i]++;
+            }
+        }
+        
+        // Progress simulation
+        let progress = 0;
+        const progressBar = document.getElementById('progress');
+        const statusText = document.getElementById('status-text');
+        const statusMessages = [
+            "Bypassing firewall...",
+            "Injecting payload...",
+            "Escalating privileges...",
+            "Accessing database...",
+            "Planting backdoor...",
+            "Finalizing compromise..."
+        ];
+        
+        function updateProgress() {
+            progress += Math.random() * 10;
+            if (progress > 100) progress = 100;
+            progressBar.style.width = progress + '%';
+            
+            if (progress < 100) {
+                const msgIndex = Math.min(Math.floor(progress/20), statusMessages.length-1);
+                statusText.textContent = statusMessages[msgIndex];
+                setTimeout(updateProgress, 300 + Math.random() * 500);
+            } else {
+                statusText.textContent = "ACCESS GRANTED";
+                setTimeout(showContent, 1000);
+            }
+        }
+        
+        function showContent() {
+            document.getElementById('cmatrix').style.opacity = 0;
+            setTimeout(() => {
+                document.getElementById('cmatrix').style.display = 'none';
+                document.getElementById('mainContent').style.display = 'block';
+                document.body.style.background = 'radial-gradient(circle, #111 0%, #000 100%)';
+            }, 500);
+        }
+        
+        // Start effects
+        const matrixInterval = setInterval(drawMatrix, 33);
+        setTimeout(updateProgress, 1000);
+        
+        // Image fallback
+        document.getElementById('hackerImage').onerror = function() {
+            this.onerror = null;
+            this.src = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 200" fill="%23333"><rect width="300" height="200" fill="%23222"/><text x="150" y="100" font-family="monospace" font-size="16" text-anchor="middle" fill="%23f00">IMAGE LOAD FAILED</text></svg>';
+            this.style.border = "2px dashed #f00";
+            this.style.filter = "none";
+        };
+        
+        // Resize handler
+        window.addEventListener('resize', function() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+    </script>
+</body>
+</html>
